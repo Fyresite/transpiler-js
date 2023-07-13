@@ -30,6 +30,7 @@ transpile_file(){
             output="$INPUT_OUTPUT";
         fi
         output_path="${output}${filename}.${INPUT_TYPENAME}.${extension}"
+        echo $output_path
         rm ${output_path}
         $(npx babel ${directory} -x ".liquid" --out-file ${output_path} --presets "$babel_workspace/preset-env","$babel_workspace/preset-react" --plugins "$babel_workspace/plugin-proposal-class-properties")
         echo "COMPILE ${directory} | OUTPUT ${output_path}"
