@@ -37,7 +37,7 @@ transpile_file(){
     fi
 }
 
-find "$INPUT_DIRECTORY" -type f -iname '*.js' -not -path "*/node_modules/*" | while read fname
+find "$INPUT_DIRECTORY" -type f \( -iname '*.js' -o -iname '*.js.liquid' \) -not -path "*/node_modules/*" | while read fname
 do
     transpile_file $fname;
 done
